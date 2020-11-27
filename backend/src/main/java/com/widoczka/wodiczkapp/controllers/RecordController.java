@@ -19,8 +19,8 @@ public class RecordController {
     }
 
     @PostMapping(value = "/add-record",
-            consumes = "application/json",
-            produces = "application/json")
+            consumes = "text/plain",
+            produces = "application/text")
     public void addRecord(){
         Record record = new Record(LocalDateTime.now());
         recordService.addRecord(record);
