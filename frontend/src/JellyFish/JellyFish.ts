@@ -1,9 +1,13 @@
 import { useLottie } from "lottie-react";
-import groovyWalkAnimation from "./jellyFish.json";
+import import_jellyFish_happy from "./jellyFish_happy.json";
+import import_jellyFish_neutral from "./jellyFish_neutral.json";
+import import_jellyFish_angry from "./jellyFish_angry.json";
+
+
  
-const JellyFish = () => {
+export const JellyFish_happy = () => {
   const options = {
-    animationData: groovyWalkAnimation,
+    animationData: import_jellyFish_happy,
     loop: true,
     autoplay: true,
   };
@@ -12,5 +16,27 @@ const JellyFish = () => {
  
   return View;
 };
+
+export const JellyFish_neutral = () => {
+  const options = {
+    animationData: import_jellyFish_neutral,
+    loop: true,
+    autoplay: true,
+  };
  
-export default JellyFish;
+  const { View } = useLottie(options);
+ 
+  return View;
+};
+
+export const JellyFish_angry = () => {
+  const options = {
+    animationData: import_jellyFish_angry,
+    loop: true,
+    autoplay: true,
+  };
+ 
+  const { View } = useLottie(options);
+ 
+  return View;
+};
