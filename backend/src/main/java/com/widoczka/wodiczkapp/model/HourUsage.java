@@ -5,12 +5,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @Entity
-@Table(name = "Records")
-public class Record {
+@Table(name = "HourUsage")
+public class HourUsage {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
@@ -18,17 +20,21 @@ public class Record {
     private int id;
     @Getter
     @Setter
-    private LocalDateTime dateTime;
+    private LocalDate date;
+    @Getter
+    @Setter
+    private int sum;
 
-    public Record(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public HourUsage(LocalDate date) {
+        this.date = date;
     }
 
     @Override
     public String toString() {
-        return "Record{" +
+        return "HourUsage{" +
                 "id=" + id +
-                ", dateTime=" + dateTime +
+                ", date=" + date +
+                ", sum=" + sum +
                 '}';
     }
 
@@ -37,7 +43,7 @@ public class Record {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Record record = (Record) o;
+        HourUsage record = (HourUsage) o;
 
         return id == record.id;
     }
