@@ -1,6 +1,7 @@
 import React from 'react';
 import {JellyFish_neutral, JellyFish_happy, JellyFish_angry} from './JellyFish/JellyFish';
 import './App.css';
+import PL from './Lang/PL'
 
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
     <div className="jellyFish">
     <JellyFish_happy/>
   </div>
-    <h1 className="title">TEST</h1>
+    <div className="title">
+  <h1>{PL.FIRST_CARD_TITLE}{': 15 litrów wody'}</h1>
+    </div>
   </div>);
 }
 
