@@ -13,7 +13,10 @@ public class Record {
     private LocalDateTime dateTime;
 
     public Record () {};
-    public Record(LocalDateTime dateTime) {};
+
+    public Record(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 
     public int getId() {
         return id;
