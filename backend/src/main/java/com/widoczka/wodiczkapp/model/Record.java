@@ -1,13 +1,11 @@
 package com.widoczka.wodiczkapp.model;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
 @Entity
 @Table(name = "Records")
 public class Record {
@@ -19,6 +17,8 @@ public class Record {
     @Getter
     @Setter
     private LocalDateTime dateTime;
+
+    public Record() {}
 
     public Record(LocalDateTime dateTime) {
         this.dateTime = dateTime;

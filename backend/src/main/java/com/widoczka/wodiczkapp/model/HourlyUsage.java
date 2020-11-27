@@ -1,17 +1,14 @@
 package com.widoczka.wodiczkapp.model;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-@NoArgsConstructor
 @Entity
-@Table(name = "HourUsage")
-public class HourUsage {
+@Table(name = "HourlyUsage")
+public class HourlyUsage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,13 +22,15 @@ public class HourUsage {
     @Setter
     private int sum;
 
-    public HourUsage(LocalDate date) {
+    public HourlyUsage() {}
+
+    public HourlyUsage(LocalDate date) {
         this.date = date;
     }
 
     @Override
     public String toString() {
-        return "HourUsage{" +
+        return "HourlyUsage{" +
                 "id=" + id +
                 ", date=" + date +
                 ", sum=" + sum +
@@ -43,7 +42,7 @@ public class HourUsage {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        HourUsage record = (HourUsage) o;
+        HourlyUsage record = (HourlyUsage) o;
 
         return id == record.id;
     }
