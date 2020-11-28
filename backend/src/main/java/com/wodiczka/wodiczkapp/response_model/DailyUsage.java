@@ -24,14 +24,7 @@ public class DailyUsage {
         this.totalDayLiters = totalDayLiters;
     }
 
-
-
-    public Date getLocatDateTime() {
+    public Date getLocalDateTime() {
         return this.date;
-    }
-
-
-    public Integer getTotalDayLiters() {
-        return this.getTotalDayLiters();
     }
 }
