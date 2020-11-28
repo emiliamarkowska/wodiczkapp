@@ -17,8 +17,9 @@ public class ActiveCategoryService {
     private CategoryRepository categoryRepository;
 
     @Autowired
-    public ActiveCategoryService(ActiveCategoryRepository activeCategoryRepository) {
+    public ActiveCategoryService(ActiveCategoryRepository activeCategoryRepository, CategoryRepository categoryRepository) {
         this.activeCategoryRepository = activeCategoryRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     public void addActiveCategory(ActiveCategory activeCategory){
