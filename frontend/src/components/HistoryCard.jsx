@@ -71,7 +71,7 @@ export default class HistoryCard extends React.Component {
         temp.forEach(function(item) {
             item.percentage = Math.ceil(item.percentage*100/max);
           })
-        this.setState({ data: temp, barHeight:max, propcoeff: 0.8});
+        this.setState({ data: temp, barHeight:max, propcoeff: 0.8 });
         const numbers = []
         for (let i = 0; i < this.state.data.length; i++) {
             numbers.push(Math.floor(Math.random() * 3) + 1);
@@ -81,8 +81,8 @@ export default class HistoryCard extends React.Component {
         })
     }
     renderBar(){
-        console.log(this.state.barHeight)
-        return (<div style={{top:`${100-(90*this.state.propcoeff)}%`}}className="strike">W.U.R</div>)
+        console.log(this.state.barHeight*this.state.propcoeff)
+        return (<div style={{top:`${100-90}%`}}className="strike">W.U.R</div>)
     }
     getWeedImage(value, id) {
         let seaWeed = greenSeaWeed_1;
@@ -106,7 +106,7 @@ export default class HistoryCard extends React.Component {
         // console.log(value);
         return (
             <div className="weedWrapper">
-                <img src={seaWeed} style={{height: `${value.percentage*this.state.propcoeff}%`}}alt="Graph" />
+                <img src={seaWeed} style={{height: `${value.percentage}%`}}alt="Graph" />
                 <div className="weedDate">{value.date}</div>
             </div>
             

@@ -41,7 +41,7 @@
   .weeds {
       position: absolute;
       width: 100%;
-      height: 90%;
+      height: 80%;
       bottom: 10%;
       display: flex;
       justify-content: space-around;
