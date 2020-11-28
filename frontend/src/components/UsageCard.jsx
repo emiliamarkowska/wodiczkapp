@@ -1,5 +1,6 @@
 import React from 'react';
 import {JellyFish_neutral, JellyFish_happy, JellyFish_angry} from '../JellyFish/JellyFish';
+import sandImage from '../assets/backgr/sand.png'
 import { getDailyUsage } from '../Services/UsageService';
 import './UsageCard.css';
 
@@ -29,7 +30,10 @@ export default class UsageCard extends React.Component {
             <div className="jellyFish">
                 <JellyFish_happy/>
             </div>
-      <h1 className="title">{currentUsage}%</h1>    
+            <h1 className="title">{currentUsage}%</h1>
+            <div className="sand">
+                <img src={sandImage}/>
+            </div>  
         </div>
       );
     }
