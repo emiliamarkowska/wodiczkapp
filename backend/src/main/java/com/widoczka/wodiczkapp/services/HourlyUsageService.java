@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HourlyUsageService {
-    private HourlyUsageRepository usageRepository;
+    private HourlyUsageRepository hourlyUsageRepository;
 
     @Autowired
     public HourlyUsageService(HourlyUsageRepository hourlyUsageRepository) {
-        this.usageRepository = hourlyUsageRepository;
+        this.hourlyUsageRepository = hourlyUsageRepository;
     }
 
     public void addHourlyUsage(HourlyUsage hourlyUsage){
-        usageRepository.save(hourlyUsage);
+        hourlyUsageRepository.save(hourlyUsage);
     }
 }
