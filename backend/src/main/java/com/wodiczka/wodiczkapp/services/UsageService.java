@@ -1,20 +1,13 @@
 package com.wodiczka.wodiczkapp.services;
 
-import com.wodiczka.wodiczkapp.model.ActiveCategory;
-import com.wodiczka.wodiczkapp.model.Category;
-import com.wodiczka.wodiczkapp.model.DailyUsageTest;
 import com.wodiczka.wodiczkapp.model.Usage;
 import com.wodiczka.wodiczkapp.repositories.UsageRepository;
 import com.wodiczka.wodiczkapp.response_model.*;
-import org.hibernate.hql.internal.ast.tree.MapEntryNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.text.DecimalFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,11 +48,18 @@ public class UsageService {
         List<DailyUsage> dailyUsages = new ArrayList<>();
         int totalDaysLiters = 0;
         List<UsageRepository.IUsageDaily2> usages = usageRepository.getLatestDailyUsagesInLiters(amount);
-        Date date;
-        //List<DailyUsageTest> test = usageRepository.getTest(amount);
+
+
+
         for(UsageRepository.IUsageDaily2 u : usages) {
             totalDaysLiters += u.getSecond().intValue();
-            dailyUsages.add(new DailyUsage(u.getFirst(), u.getSecond().intValue()));
+
+            Map<String, String> ratioMap = new HashMap<>();
+            ratioMap.put("europe", new DecimalFormat("#0.000").format(u.getSecond().intValue() / europe));
+            ratioMap.put("poland-normal", new DecimalFormat("#0.000").format(u.getSecond().intValue() / polandNormal));
+            ratioMap.put("poland-draught", new DecimalFormat("#0.000").format(u.getSecond().intValue() / polandDrought));
+
+            dailyUsages.add(new DailyUsage(u.getFirst(), u.getSecond().intValue(), ratioMap));
         }
 
         return new DaysResponse(totalDaysLiters, dailyUsages);

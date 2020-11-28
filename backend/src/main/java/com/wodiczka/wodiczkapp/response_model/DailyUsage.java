@@ -7,8 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Map;
 
 @NoArgsConstructor
 public class DailyUsage {
@@ -19,9 +18,13 @@ public class DailyUsage {
     @JsonProperty("totalyInDate")
     private Integer totalDayLiters;
 
-    public DailyUsage(Date date, Integer totalDayLiters) {
+    @JsonProperty("ratio")
+    Map<String, String> ratioMap;
+
+    public DailyUsage(Date date, Integer totalDayLiters, Map<String, String> ratioMap) {
         this.date = date;
         this.totalDayLiters = totalDayLiters;
+        this.ratioMap = ratioMap;
     }
 
     public Date getLocalDateTime() {
