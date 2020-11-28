@@ -24,7 +24,7 @@ function Background() {
         <Card name="card2">
         Karta2
           <div>
-        <img className="greenSeaWeed_1"src={greenSeaWeed_1} style={{width:'80px',height:`${50}vh`}}alt="Graph" />
+        <img className="greenSeaWeed_1"src={greenSeaWeed_1} style={{width:'80px',height:`${90}vh`}}alt="Graph" />
         <img src={greenSeaWeed_2} style={{width:'80px',height: `${50}vh`}}alt="Graph" />
         <img src={greenSeaWeed_3} style={{width:'80px', height: `${90}vh`}}alt="Graph" />
         </div>
