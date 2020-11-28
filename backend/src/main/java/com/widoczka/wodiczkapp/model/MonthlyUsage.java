@@ -21,6 +21,11 @@ public class MonthlyUsage {
     @Getter
     @Setter
     private int sum;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @Getter
+    @Setter
+    private Category category;
 
     public MonthlyUsage() {}
 

@@ -21,6 +21,8 @@ public class HourlyUsage {
     @Getter
     @Setter
     private int sum;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     @Getter
     @Setter
     private Category category;
