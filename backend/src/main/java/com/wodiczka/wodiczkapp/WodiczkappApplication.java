@@ -1,10 +1,8 @@
 package com.wodiczka.wodiczkapp;
 
-import com.wodiczka.wodiczkapp.model.Category;
-import com.wodiczka.wodiczkapp.model.CurrentUsage;
-import com.wodiczka.wodiczkapp.model.CurrentUsageCategory;
-import com.wodiczka.wodiczkapp.model.HourlyUsage;
+import com.wodiczka.wodiczkapp.model.*;
 import com.wodiczka.wodiczkapp.repositories.CategoryRepository;
+import com.wodiczka.wodiczkapp.repositories.UsageRepository;
 import com.wodiczka.wodiczkapp.repositories.CurrentUsageCategoryRepository;
 import com.wodiczka.wodiczkapp.repositories.CurrentUsageRepository;
 import com.wodiczka.wodiczkapp.repositories.HourlyUsageRepository;
@@ -31,6 +29,26 @@ public class WodiczkappApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WodiczkappApplication.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner testDataUsages(UsageRepository usageRepository) {
+		return args -> {
+			usageRepository.save(new Usage(LocalDateTime.now().minusDays(10)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusDays(7)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusDays(3)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusDays(1).minusHours(4)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusDays(1).minusHours(2)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusHours(20)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusHours(10)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusHours(6)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusHours(6).minusMinutes(30)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusMinutes(50)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusMinutes(30)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusMinutes(10)));
+			usageRepository.save(new Usage(LocalDateTime.now().minusMinutes(5)));
+			usageRepository.save(new Usage(LocalDateTime.now()));
+		};
 	}
 
 	@Bean

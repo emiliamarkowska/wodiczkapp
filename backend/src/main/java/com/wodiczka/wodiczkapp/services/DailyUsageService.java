@@ -22,9 +22,5 @@ public class DailyUsageService {
     }
 
 
-    public void addDailyUsage(DailyUsage dailyUsage) {
-        dailyUsageRepository.save(dailyUsage);
-    }
-
 
 }

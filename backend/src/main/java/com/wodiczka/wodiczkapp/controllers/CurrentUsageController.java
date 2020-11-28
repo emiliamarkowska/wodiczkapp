@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @RestController
 public class CurrentUsageController {
@@ -30,7 +28,7 @@ public class CurrentUsageController {
     }
 
     @CrossOrigin
-    @GetMapping(value = "/current-usage/get-usage-for-categories",
+    @GetMapping(value = "/api/usage/current-hour",
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public CategoriesResponse getCurrentUsageCategoriesToLiters() {
