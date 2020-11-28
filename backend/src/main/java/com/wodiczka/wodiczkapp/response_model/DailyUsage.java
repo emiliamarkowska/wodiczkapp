@@ -19,9 +19,9 @@ public class DailyUsage {
     private Integer totalDayLiters;
 
     @JsonProperty("ratio")
-    Map<String, String> ratioMap;
+    Map<String, Double> ratioMap;
 
-    public DailyUsage(Date date, Integer totalDayLiters, Map<String, String> ratioMap) {
+    public DailyUsage(Date date, Integer totalDayLiters, Map<String, Double> ratioMap) {
         this.date = date;
         this.totalDayLiters = totalDayLiters;
         this.ratioMap = ratioMap;
