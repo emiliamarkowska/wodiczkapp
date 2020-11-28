@@ -1,6 +1,6 @@
 package com.widoczka.wodiczkapp.services;
 
-import com.widoczka.wodiczkapp.model.CategoryLabel;
+import com.widoczka.wodiczkapp.model.Category;
 import com.widoczka.wodiczkapp.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public void addActivityLabel(CategoryLabel categoryLabel){
+    public void addActivityLabel(Category categoryLabel){
         categoryRepository.save(categoryLabel);
     }
 }

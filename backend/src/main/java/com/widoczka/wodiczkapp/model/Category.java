@@ -1,47 +1,28 @@
 package com.widoczka.wodiczkapp.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ActivityLabels")
-public class CategoryLabel {
+@Table(name = "Categories")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Setter
     private int id;
 
+    @Getter
+    @Setter
     private String name;
 
+    @Getter
+    @Setter
     private Float rate;
 
-    public CategoryLabel() {};
-
-    public CategoryLabel(String name) {
-        this.name = name;
-    }
-
-    public CategoryLabel(Float rate) {
-        this.rate = rate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() { return name; }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Float getRate() { return rate; }
-
-    public void setRate(Float rate) {
-        this.rate = rate;
-    }
+    public Category() {};
 
     @Override
     public String toString() {
@@ -57,7 +38,7 @@ public class CategoryLabel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CategoryLabel activityLabel = (CategoryLabel) o;
+        Category activityLabel = (Category) o;
 
         return id == activityLabel.id;
     }
