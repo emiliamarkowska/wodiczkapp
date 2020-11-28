@@ -40,7 +40,7 @@ public class UsageService {
         ratioMap.put("europe", new DecimalFormat("#0.000").format(totalLiters / europe));
         ratioMap.put("poland-normal", new DecimalFormat("#0.000").format(totalLiters / polandNormal));
         ratioMap.put("poland-draught", new DecimalFormat("#0.000").format(totalLiters / polandDrought));
-        return new CurrentDayResponse(totalLiters, ratioMap, LocalDateTime.now());
+        return new CurrentDayResponse(totalLiters / 92, ratioMap, LocalDateTime.now());
     }
 
     public DaysResponse getDaysUsage(int amount) {
@@ -48,8 +48,6 @@ public class UsageService {
         List<DailyUsage> dailyUsages = new ArrayList<>();
         int totalDaysLiters = 0;
         List<UsageRepository.IUsageDaily2> usages = usageRepository.getLatestDailyUsagesInLiters(amount);
-
-
 
         for(UsageRepository.IUsageDaily2 u : usages) {
             totalDaysLiters += u.getSecond().intValue();
