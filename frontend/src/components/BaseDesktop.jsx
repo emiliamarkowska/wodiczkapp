@@ -1,4 +1,5 @@
 import React from 'react';
+import Background from './Background';
 
 export default class BaseDesktop extends React.Component {
     constructor(props) {
@@ -6,6 +7,6 @@ export default class BaseDesktop extends React.Component {
     }
 
     render() {
-      return <h1>Desktop</h1>;
+      return <Background/>;
     }
 }

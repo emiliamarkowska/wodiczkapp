@@ -18,8 +18,8 @@ export default class UsageCard extends React.Component {
     getDailyUsage().then(usage => {
       console.log(usage);
       this.setState({
-        total: 69,
-        ratio: 0.7 //usage.sum_liters_in_current_hour * 100
+        total: usage.totalDayLiters,
+        ratio: usage.ratioAverageUsage
       });
     });
   }
@@ -43,7 +43,7 @@ export default class UsageCard extends React.Component {
           <div className="spacer"/>
           {this.renderJelly()}
           <h1 className="title-liters">{total} l</h1>
-          <h3 className="title-percentage">{ratio*100}%</h3>
+          <h3 className="title-percentage">{(ratio*100).toFixed()}%</h3>
           <div className="spacer2"/>
           <div className="sand">
             <img src={sandImage}/>

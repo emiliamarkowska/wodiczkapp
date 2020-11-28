@@ -5,39 +5,7 @@ import greenSeaWeed_2 from '../assets/graphs/greenSeaWeed_2.svg'
 import greenSeaWeed_3 from '../assets/graphs/greenSeaWeed_3.svg'
 import greenSeaWeed_4 from '../assets/graphs/greenSeaWeed_4.svg'
 import sandImage from '../assets/backgr/sand.png'
-
-// const data = [
-//     {
-//         key: 1,
-//         percentage: Math.floor(Math.random() * 101),
-//         date: "2020.11.29"
-//     },
-//     {
-//         key: 2,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 3,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 4,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 5,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 6,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 7,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-// ]
-
+import { getHistoryUsage } from '../Services/UsageService';
 
 
 export default class HistoryCard extends React.Component {
@@ -52,37 +20,41 @@ export default class HistoryCard extends React.Component {
     }
 
     componentDidMount() {
-        let temp = []
-        let max 
-        for (let i = 1; i < 8; ++i) {
-            temp.push({
-                key: i,
-                percentage: Math.floor(Math.random() * 101),
-                date: `11.${30 - i}`
+        getHistoryUsage().then((data) => {
+            let temp = JSON.parse(JSON.stringify(data.data.days));
+            this.setState({
+                data: data.data.days
+            });
+
+                //calc proportionality
+            
+            const sorted = temp.sort((a, b) => a.ratio.polandNormal > b.ratio.polandNormal);
+            
+            let max = sorted[sorted.length - 1].ratio.polandNormal < 1 ? 1 : sorted[sorted.length - 1].ratio.polandNormal;
+
+            temp.forEach(function(item, index) {
+                if (!item.ratio.polandNormal) {item.ratio.polandNormal = 0; return;}
+                item.ratio.polandNormal = (item.ratio.polandNormal/max);
+
             })
-        }
-        //calc proportionality
-        const check = temp.slice()
-        let sorted = temp.slice()
-        sorted = sorted.sort((a, b) => (a.percentage > b.percentage) ? 1 : -1)
-        max = sorted[6].percentage
-        console.log(sorted)
-        console.log(max)
-        temp.forEach(function(item) {
-            item.percentage = Math.ceil(item.percentage*100/max);
-          })
-        this.setState({ data: temp, barHeight:max, propcoeff: 0.8 });
-        const numbers = []
-        for (let i = 0; i < this.state.data.length; i++) {
-            numbers.push(Math.floor(Math.random() * 3) + 1);
-        }
-        this.setState({
-            imageNumbers: numbers
+
+            const barHeightCalculated = max == 1 ? 100 : (1/max) * 100;
+
+            this.setState({ data: temp, barHeight:barHeightCalculated, propcoeff: 0.8});
+
+            const numbers = []
+            for (let i = 0; i < this.state.data.length; i++) {
+                numbers.push(Math.floor(Math.random() * 3) + 1);
+            }
+            this.setState({
+                imageNumbers: numbers
+            });
         })
+
+
     }
     renderBar(){
-        console.log(this.state.barHeight*this.state.propcoeff)
-        return (<div style={{top:`${100-90}%`}}className="strike">W.U.R</div>)
+        return (<div style={{top:`${110-this.state.barHeight}%`}}className="strike">W.U.R</div>)
     }
     getWeedImage(value, id) {
         let seaWeed = greenSeaWeed_1;
@@ -103,11 +75,10 @@ export default class HistoryCard extends React.Component {
                 seaWeed = greenSeaWeed_1;
                 break;
         }
-        // console.log(value);
         return (
             <div className="weedWrapper">
-                <img src={seaWeed} style={{height: `${value.percentage}%`}}alt="Graph" />
-                <div className="weedDate">{value.date}</div>
+                <img src={seaWeed} style={{height: `${value.ratio.polandNormal * 100}%`}}alt="Graph" />
+                <div className="weedDate">{new Date(value.date).getDate()}.{new Date(value.date).getMonth() + 1}</div>
             </div>
             
         );
@@ -115,8 +86,7 @@ export default class HistoryCard extends React.Component {
 
     renderWeeds() {
         const { imageNumbers } = this.state;
-        // console.log('ImageNumbers')
-        return (this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index])))
+        return (this.state.data ? this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index])) : null)
     }
 
     render() {
