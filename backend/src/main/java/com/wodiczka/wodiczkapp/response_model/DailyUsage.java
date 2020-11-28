@@ -1,26 +1,37 @@
 package com.wodiczka.wodiczkapp.response_model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
 public class DailyUsage {
-    @Getter
-    @Setter
-    private LocalDateTime date;
-    @Getter
-    @Setter
+
+    @JsonProperty("date")
+    private Date date;
+
+    @JsonProperty("totalyInDate")
     private Integer totalDayLiters;
 
-    public DailyUsage( LocalDateTime date, Integer totalDayLiters) {
+    public DailyUsage(Date date, Integer totalDayLiters) {
         this.date = date;
         this.totalDayLiters = totalDayLiters;
     }
 
 
+
+    public Date getLocatDateTime() {
+        return this.date;
+    }
+
+
+    public Integer getTotalDayLiters() {
+        return this.getTotalDayLiters();
+    }
 }

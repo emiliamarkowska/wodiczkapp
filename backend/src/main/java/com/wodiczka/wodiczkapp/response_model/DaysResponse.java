@@ -2,6 +2,7 @@ package com.wodiczka.wodiczkapp.response_model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,7 +14,7 @@ public class DaysResponse {
     @JsonProperty("days")
     List<DailyUsage> days;
 
-    public DaysResponse(int totalDayLiters, List<DailyUsage> days) {
+    public DaysResponse(int totalDayLiters, @Lazy List<DailyUsage> days) {
         this.totalDayLiters = totalDayLiters;
         this.days = days;
     }

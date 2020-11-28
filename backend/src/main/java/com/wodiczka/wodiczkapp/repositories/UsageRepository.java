@@ -1,11 +1,19 @@
 package com.wodiczka.wodiczkapp.repositories;
 
+import com.wodiczka.wodiczkapp.model.DailyUsageTest;
 import com.wodiczka.wodiczkapp.model.Usage;
 import com.wodiczka.wodiczkapp.response_model.DailyUsage;
+import com.wodiczka.wodiczkapp.response_model.IUsageDaily;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.SqlResultSetMapping;
+import java.math.BigInteger;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,12 +25,19 @@ public interface UsageRepository extends CrudRepository<Usage, Integer> {
             "where date(usages.date_time) = date(utc_timestamp())", nativeQuery = true)
     Integer getCurrentDayUsageInLiters();
 
-    @Query(value = "select date(usages.date_time), count(*) from usages\n" +
-            "where date(usages.date_time) <= date(utc_timestamp()) and\n" +
-            "date(usages.date_time) > date(utc_timestamp() - interval :amount day)\n" +
-            "group by date(usages.date_time)", nativeQuery = true)
-    List<DailyUsage> getLatestDailyUsagesInLiters(@Param("amount") int amount);
+    @Query(value = "select date(u.date_time) as first, count(u.id) as second from usages u " +
+            "where date(u.date_time) <= date(utc_timestamp()) and " +
+            "date(u.date_time) > date(utc_timestamp() - interval :amount day) " +
+            "group by date(u.date_time)", nativeQuery = true)
+    List<IUsageDaily2> getLatestDailyUsagesInLiters(@Param("amount") int amount);
 
+    public static interface IUsageDaily2 {
+
+        Date getFirst();
+
+        BigInteger getSecond();
+
+    }
 
 
 

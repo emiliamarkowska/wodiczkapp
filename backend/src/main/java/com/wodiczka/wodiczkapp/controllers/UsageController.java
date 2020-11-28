@@ -43,5 +43,4 @@ public class UsageController {
     public DaysResponse getCurrentDayUsage(@PathVariable int amount) {
         return usageService.getDaysUsage(amount);
     }
-
 }
