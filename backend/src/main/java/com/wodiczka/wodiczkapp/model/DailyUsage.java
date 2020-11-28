@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -18,10 +19,10 @@ public class DailyUsage {
     private int id;
     @Getter
     @Setter
-    private LocalDateTime dateTime;
+    private LocalDate date;
 
-    public DailyUsage(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public DailyUsage(LocalDate date) {
+        this.date = date;
     }
 
     @Override

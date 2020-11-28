@@ -22,7 +22,7 @@ public class CurrentUsageController {
     @PostMapping(value = "/add-currentUsage",
             consumes = "text/plain",
             produces = "application/text")
-    public void addCurrentUsage(List<Category> categories){
+    public void addCurrentUsage(){
         CurrentUsage currentUsage = new CurrentUsage(LocalDateTime.now());
         currentUsageService.addCurrentUsage(currentUsage);
     }
