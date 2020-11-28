@@ -1,0 +1,26 @@
+.jellyFish{
+    z-index: 2;
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.jellyFish div {
+    width: 80%;
+}
+.title{
+    z-index: 2;
+    position: relative;
+    color: rgb(13, 1, 126);
+    mix-blend-mode: difference;
+    font-size: 3rem;
+}
+
+.usageCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
