@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ActiveCategories")
@@ -19,10 +19,19 @@ public class ActiveCategory {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @Getter
+    @Setter
+    private LocalDateTime dateTime;
+
     public ActiveCategory() {};
 
     public ActiveCategory(Category category){
         this.category = category;
+    }
+
+    public ActiveCategory(Category category, LocalDateTime localDateTime) {
+        this.category = category;
+        this.dateTime = localDateTime;
     }
 
     public int getId() {
@@ -45,6 +54,7 @@ public class ActiveCategory {
     public String toString() {
         return "ActiveCategory{" +
                 "id=" + id +
+                "dateTime=" + dateTime +
                 '}';
     }
 
