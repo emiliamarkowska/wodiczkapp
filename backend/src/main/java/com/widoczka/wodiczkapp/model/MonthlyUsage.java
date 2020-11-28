@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "MonthlyUsage")
+@Table(name = "MonthlyUsages")
 public class MonthlyUsage {
 
     @Id

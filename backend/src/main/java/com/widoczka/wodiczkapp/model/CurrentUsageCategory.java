@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CurrentUsageCategory")
+@Table(name = "CurrentUsagesCategories")
 public class CurrentUsageCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

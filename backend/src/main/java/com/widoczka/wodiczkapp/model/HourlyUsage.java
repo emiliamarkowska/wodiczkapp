@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "HourlyUsage")
+@Table(name = "HourlyUsages")
 public class HourlyUsage {
 
     @Id
@@ -21,6 +21,9 @@ public class HourlyUsage {
     @Getter
     @Setter
     private int sum;
+    @Getter
+    @Setter
+    private Category category;
 
     public HourlyUsage() {}
 

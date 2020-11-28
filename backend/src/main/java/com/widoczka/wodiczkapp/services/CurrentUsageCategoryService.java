@@ -17,4 +17,5 @@ public class CurrentUsageCategoryService {
     public void addCurrentUsageActivity(CurrentUsageCategory currentUsageCategory) {
         currentUsageCategoryRepository.save(currentUsageCategory);
     }
+
 }
