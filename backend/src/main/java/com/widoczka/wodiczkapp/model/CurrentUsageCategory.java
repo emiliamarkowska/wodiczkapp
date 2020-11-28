@@ -1,51 +1,38 @@
 package com.widoczka.wodiczkapp.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "CurrentUsagesCategories")
 public class CurrentUsageCategory {
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Getter
     @Setter
-    private int id;
-
     @ManyToOne
     @JoinColumn(name = "category_id")
+    private Category category;
     @Getter
     @Setter
-    private Category category;
-
     @ManyToOne
     @JoinColumn(name = "current_usage_id")
-    @Getter
-    @Setter
     private CurrentUsage currentUsage;
-
     @Getter
     @Setter
     private float rate;
-
-    public CurrentUsageCategory() {}
 
     public CurrentUsageCategory(Category category, CurrentUsage currentUsage, float rate){
         this.category = category;
         this.currentUsage = currentUsage;
         this.rate = rate;
-    }
-
-    @Override
-    public String toString() {
-        return "CurrentUsageCategory{" +
-                "id=" + id +
-                ", category=" + category +
-                ", currentUsage=" + currentUsage +
-                ", rate=" + rate +
-                '}';
     }
 
     @Override
@@ -56,7 +43,6 @@ public class CurrentUsageCategory {
         CurrentUsageCategory that = (CurrentUsageCategory) o;
 
         return id == that.id;
-
     }
 
     @Override

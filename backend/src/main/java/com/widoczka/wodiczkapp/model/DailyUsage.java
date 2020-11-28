@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @Entity
-@Table(name = "CurrentUsages")
-public class CurrentUsage {
+@Table(name = "DailyUsages")
+public class DailyUsage {
     @Getter
     @Setter
     @Id
@@ -20,7 +20,7 @@ public class CurrentUsage {
     @Setter
     private LocalDateTime dateTime;
 
-    public CurrentUsage(LocalDateTime dateTime) {
+    public DailyUsage(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -29,9 +29,9 @@ public class CurrentUsage {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CurrentUsage currentUsage = (CurrentUsage) o;
+        DailyUsage dailyUsage = (DailyUsage) o;
 
-        return id == currentUsage.id;
+        return id == dailyUsage.id;
     }
 
     @Override

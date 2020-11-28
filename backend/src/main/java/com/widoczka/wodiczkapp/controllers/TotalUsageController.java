@@ -16,12 +16,4 @@ public class TotalUsageController {
     public TotalUsageController(TotalUsageService totalUsageService) {
         this.totalUsageService = totalUsageService;
     }
-
-    @PostMapping(value = "/add-totalUsage",
-            consumes = "text/plain",
-            produces = "application/text")
-    public void addRecord(){
-        TotalUsage totalUsage = new TotalUsage(LocalDate.now());
-        totalUsageService.addTotalUsage(totalUsage);
-    }
 }

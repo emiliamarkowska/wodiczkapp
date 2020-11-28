@@ -16,12 +16,4 @@ public class AnnualUsageController {
     public AnnualUsageController(AnnualUsageService annualUsageService) {
         this.annualUsageService = annualUsageService;
     }
-
-    @PostMapping(value = "/add-annualUsage",
-            consumes = "text/plain",
-            produces = "application/text")
-    public void addRecord(){
-        AnnualUsage annualUsage = new AnnualUsage(LocalDate.now());
-        annualUsageService.addAnnualUsage(annualUsage);
-    }
 }

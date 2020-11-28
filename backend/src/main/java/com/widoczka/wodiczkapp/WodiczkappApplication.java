@@ -3,14 +3,17 @@ package com.widoczka.wodiczkapp;
 import com.widoczka.wodiczkapp.model.Category;
 import com.widoczka.wodiczkapp.model.CurrentUsage;
 import com.widoczka.wodiczkapp.model.CurrentUsageCategory;
+import com.widoczka.wodiczkapp.model.HourlyUsage;
 import com.widoczka.wodiczkapp.repositories.CategoryRepository;
 import com.widoczka.wodiczkapp.repositories.CurrentUsageCategoryRepository;
 import com.widoczka.wodiczkapp.repositories.CurrentUsageRepository;
+import com.widoczka.wodiczkapp.repositories.HourlyUsageRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @SpringBootApplication
@@ -69,5 +72,14 @@ public class WodiczkappApplication {
 			currentUsageCategoryRepository.save(new CurrentUsageCategory(category4, currentUsage5, 0.5f));
 		};
 	}
+	@Bean
+	public CommandLineRunner testDataHourlyUsage(HourlyUsageRepository hourlyUsageRepository) {
+		return args -> {
+			hourlyUsageRepository.save(new HourlyUsage(LocalDateTime.now(), 30, category1));
+			hourlyUsageRepository.save(new HourlyUsage(LocalDateTime.now(), 30, category1));
+			hourlyUsageRepository.save(new HourlyUsage(LocalDateTime.now(), 30, category2));
+		};
+	}
+
 
 }

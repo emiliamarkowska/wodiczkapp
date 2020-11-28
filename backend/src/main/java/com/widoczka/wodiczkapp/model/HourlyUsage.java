@@ -1,15 +1,17 @@
 package com.widoczka.wodiczkapp.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "HourlyUsages")
 public class HourlyUsage {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
@@ -17,29 +19,20 @@ public class HourlyUsage {
     private int id;
     @Getter
     @Setter
-    private LocalDate date;
+    private LocalDateTime dateTime;
     @Getter
     @Setter
-    private int sum;
+    private float sum;
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name = "category_id")
-    @Getter
-    @Setter
     private Category category;
 
-    public HourlyUsage() {}
-
-    public HourlyUsage(LocalDate date) {
-        this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return "HourlyUsage{" +
-                "id=" + id +
-                ", date=" + date +
-                ", sum=" + sum +
-                '}';
+    public HourlyUsage(LocalDateTime dateTime, float sum, Category category) {
+        this.dateTime = dateTime;
+        this.sum = sum;
+        this.category = category;
     }
 
     @Override

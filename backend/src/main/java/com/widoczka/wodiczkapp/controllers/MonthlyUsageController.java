@@ -16,12 +16,4 @@ public class MonthlyUsageController {
     public MonthlyUsageController(MonthlyUsageService monthlyUsageService) {
         this.monthlyUsageService = monthlyUsageService;
     }
-
-    @PostMapping(value = "/add-monthlyUsage",
-            consumes = "text/plain",
-            produces = "application/text")
-    public void addRecord(){
-        MonthlyUsage monthlyUsage = new MonthlyUsage(LocalDate.now());
-        monthlyUsageService.addMonthlyUsage(monthlyUsage);
-    }
 }

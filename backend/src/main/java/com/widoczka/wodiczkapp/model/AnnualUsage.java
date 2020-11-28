@@ -1,45 +1,37 @@
 package com.widoczka.wodiczkapp.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "AnnualUsages")
 public class AnnualUsage {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Getter
     @Setter
     private LocalDate date;
     @Getter
     @Setter
-    private int sum;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+    private float sum;
     @Getter
     @Setter
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
 
-    public AnnualUsage() {}
-
-    public AnnualUsage(LocalDate date) {
+    public AnnualUsage(LocalDate date, float sum, Category category) {
         this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return "AnnualUsage{" +
-                "id=" + id +
-                ", date=" + date +
-                ", sum=" + sum +
-                '}';
+        this.sum = sum;
+        this.category = category;
     }
 
     @Override

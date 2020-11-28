@@ -16,12 +16,4 @@ public class HourlyUsageController {
     public HourlyUsageController(HourlyUsageService hourlyUsageService) {
         this.hourlyUsageService = hourlyUsageService;
     }
-
-    @PostMapping(value = "/add-hourlyUsage",
-            consumes = "text/plain",
-            produces = "application/text")
-    public void addRecord(){
-        HourlyUsage hourlyUsage = new HourlyUsage(LocalDate.now());
-        hourlyUsageService.addHourlyUsage(hourlyUsage);
-    }
 }

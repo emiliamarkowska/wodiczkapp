@@ -1,61 +1,33 @@
 package com.widoczka.wodiczkapp.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "ActiveCategories")
 public class ActiveCategory {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
     @Getter
     @Setter
     private LocalDateTime dateTime;
 
-    public ActiveCategory() {};
-
-    public ActiveCategory(Category category){
-        this.category = category;
-    }
-
     public ActiveCategory(Category category, LocalDateTime localDateTime) {
         this.category = category;
         this.dateTime = localDateTime;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    @Override
-    public String toString() {
-        return "ActiveCategory{" +
-                "id=" + id +
-                "dateTime=" + dateTime +
-                '}';
     }
 
     @Override

@@ -1,41 +1,30 @@
 package com.widoczka.wodiczkapp.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "Categories")
 public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Getter
     @Setter
     private String name;
-
     @Getter
     @Setter
     private Float rate;
 
-    public Category() {};
-
     public Category(String name, Float rate) {
         this.name = name;
         this.rate = rate;
-    }
-
-    @Override
-    public String toString() {
-        return "CategoryLabel{" +
-                "id=" + id +
-                ", name=" + name +
-                ", rate=" + rate +
-                '}';
     }
 
     @Override
