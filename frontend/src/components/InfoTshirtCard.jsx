@@ -1,5 +1,6 @@
 import React from 'react';
 import sandImage from '../assets/backgr/sand.png'
+import shirtImage from '../assets/backgr/shirt.png'
 import { getDailyUsage } from '../Services/UsageService';
 import './InfoTshirtCard.css';
 
@@ -19,7 +20,7 @@ export default class InfoTshirtCard extends React.Component {
       console.log(usage);
       this.setState({
         total: 69,
-        tshirtPercentUsage: Math.round((usage.total * this.state.tshirtPercentPerLiter + Number.EPSILON) * 100) / 100,
+        tshirtPercentUsage: Math.round((usage.totalDayLiters * this.state.tshirtPercentPerLiter + Number.EPSILON) * 100) / 100,
       });
     });
   }
@@ -31,8 +32,11 @@ export default class InfoTshirtCard extends React.Component {
       <div className="usageCard">
         <div className="steel-info-container">
           <div className="steel-info-intro-wrapper">
-    <span className="steel-info-intro-text">Twoje dzisiejsze zużycie wody starczyłoby na wyprodukowanie<br/><span className="tshirt-usage-percent">{tshirtPercentUsage}%</span> T-shirta bawełnianego.</span>
+            <span className="steel-info-intro-text">Twoje dzisiejsze zużycie wody starczyłoby na wyprodukowanie<br/><span className="tshirt-usage-percent">{tshirtPercentUsage}%</span> T-shirta bawełnianego.</span>
             <div className="spacer"/>
+          </div>
+          <div className="shirt">
+            <img src={shirtImage}/>
           </div>
           <div className="steel-info-main-wrapper">
             <div className="spacer"/>

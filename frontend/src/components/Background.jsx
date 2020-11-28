@@ -24,8 +24,7 @@ export default class Background extends React.Component {
   componentDidMount() {
     getDailyUsage().then((usage) => {
       this.setState({
-        //percentageHeight: usage.sum_liters_in_current_hour + '%'
-        percentageHeight: 70 + '%'
+        percentageHeight: usage.sum_liters_in_current_hour + '%'
       })
     })
   }

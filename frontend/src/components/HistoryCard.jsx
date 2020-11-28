@@ -21,25 +21,26 @@ export default class HistoryCard extends React.Component {
 
     componentDidMount() {
         getHistoryUsage().then((data) => {
-            console.log(data);
+            let temp = JSON.parse(JSON.stringify(data.data.days));
             this.setState({
-                data: data.days
+                data: data.data.days
             });
 
                 //calc proportionality
-            const temp = data.days;
-            const check = temp.slice();
-            let sorted = temp.slice();
-            console.log(temp);
-            console.log(sorted);
-            sorted = sorted.sort((a, b) => (a.ratio.polandNormal > b.ratio.polandNormal) ? 1 : -1)
-            const max = sorted[sorted.length - 1].ratio.polandNormal
-            console.log(sorted)
-            console.log(max)
-            temp.forEach(function(item) {
-                item.ratio.polandNormal = Math.ceil(item.ratio.polandNormal*100/max);
+            
+            const sorted = temp.sort((a, b) => a.ratio.polandNormal > b.ratio.polandNormal);
+            
+            let max = sorted[sorted.length - 1].ratio.polandNormal < 1 ? 1 : sorted[sorted.length - 1].ratio.polandNormal;
+
+            temp.forEach(function(item, index) {
+                if (!item.ratio.polandNormal) {item.ratio.polandNormal = 0; return;}
+                item.ratio.polandNormal = (item.ratio.polandNormal/max);
+
             })
-            this.setState({ data: temp, barHeight:max, propcoeff: 0.8});
+
+            const barHeightCalculated = max == 1 ? 100 : (1/max) * 100;
+
+            this.setState({ data: temp, barHeight:barHeightCalculated, propcoeff: 0.8});
 
             const numbers = []
             for (let i = 0; i < this.state.data.length; i++) {
@@ -53,8 +54,7 @@ export default class HistoryCard extends React.Component {
 
     }
     renderBar(){
-        console.log(this.state.barHeight*this.state.propcoeff)
-        return (<div style={{top:`${100-90}%`}}className="strike">W.U.R</div>)
+        return (<div style={{top:`${110-this.state.barHeight}%`}}className="strike">W.U.R</div>)
     }
     getWeedImage(value, id) {
         let seaWeed = greenSeaWeed_1;
@@ -75,16 +75,10 @@ export default class HistoryCard extends React.Component {
                 seaWeed = greenSeaWeed_1;
                 break;
         }
-        // console.log(value);
         return (
             <div className="weedWrapper">
-<<<<<<< HEAD
-                <img src={seaWeed} style={{height: `${value.ratio.polandNormal*this.state.propcoeff}%`}}alt="Graph" />
-                <div className="weedDate">{value.localDateTime}</div>
-=======
-                <img src={seaWeed} style={{height: `${value.percentage}%`}}alt="Graph" />
-                <div className="weedDate">{value.date}</div>
->>>>>>> ac34859c15dc29fee89d60e1b2e2e74957fe5000
+                <img src={seaWeed} style={{height: `${value.ratio.polandNormal * 100}%`}}alt="Graph" />
+                <div className="weedDate">{new Date(value.date).getDate()}.{new Date(value.date).getMonth() + 1}</div>
             </div>
             
         );
@@ -92,12 +86,10 @@ export default class HistoryCard extends React.Component {
 
     renderWeeds() {
         const { imageNumbers } = this.state;
-        console.log(this.state.data);
         return (this.state.data ? this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index])) : null)
     }
 
     render() {
-        console.log(this.state.data);
 
       return (
         <div className="historyCard">
