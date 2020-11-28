@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Records")
-public class Record {
+@Table(name = "CurrentUsages")
+public class CurrentUsage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
@@ -18,15 +18,15 @@ public class Record {
     @Setter
     private LocalDateTime dateTime;
 
-    public Record() {}
+    public CurrentUsage() {}
 
-    public Record(LocalDateTime dateTime) {
+    public CurrentUsage(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
     @Override
     public String toString() {
-        return "Record{" +
+        return "CurrentUsage{" +
                 "id=" + id +
                 ", dateTime=" + dateTime +
                 '}';
@@ -37,9 +37,9 @@ public class Record {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Record record = (Record) o;
+        CurrentUsage currentUsage = (CurrentUsage) o;
 
-        return id == record.id;
+        return id == currentUsage.id;
     }
 
     @Override
