@@ -5,39 +5,7 @@ import greenSeaWeed_2 from '../assets/graphs/greenSeaWeed_2.svg'
 import greenSeaWeed_3 from '../assets/graphs/greenSeaWeed_3.svg'
 import greenSeaWeed_4 from '../assets/graphs/greenSeaWeed_4.svg'
 import sandImage from '../assets/backgr/sand.png'
-
-// const data = [
-//     {
-//         key: 1,
-//         percentage: Math.floor(Math.random() * 101),
-//         date: "2020.11.29"
-//     },
-//     {
-//         key: 2,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 3,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 4,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 5,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 6,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-//     {
-//         key: 7,
-//         percentage: Math.floor(Math.random() * 101)
-//     },
-// ]
-
+import { getHistoryUsage } from '../Services/UsageService';
 
 
 export default class HistoryCard extends React.Component {
@@ -52,26 +20,28 @@ export default class HistoryCard extends React.Component {
     }
 
     componentDidMount() {
-        let temp = []
-        let max 
-        for (let i = 1; i < 8; ++i) {
-            temp.push({
-                key: i,
-                percentage: Math.floor(Math.random() * 101),
-                date: `11.${30 - i}`
+        getHistoryUsage().then((data) => {
+            console.log(data);
+            this.setState({
+                data: data.days
+            });
+
+                //calc proportionality
+            const temp = data.days;
+            const check = temp.slice();
+            let sorted = temp.slice();
+            console.log(temp);
+            console.log(sorted);
+            sorted = sorted.sort((a, b) => (a.ratio.polandNormal > b.ratio.polandNormal) ? 1 : -1)
+            const max = sorted[sorted.length - 1].ratio.polandNormal
+            console.log(sorted)
+            console.log(max)
+            temp.forEach(function(item) {
+                item.ratio.polandNormal = Math.ceil(item.ratio.polandNormal*100/max);
             })
-        }
-        //calc proportionality
-        const check = temp.slice()
-        let sorted = temp.slice()
-        sorted = sorted.sort((a, b) => (a.percentage > b.percentage) ? 1 : -1)
-        max = sorted[6].percentage
-        console.log(sorted)
-        console.log(max)
-        temp.forEach(function(item) {
-            item.percentage = Math.ceil(item.percentage*100/max);
-          })
-        this.setState({ data: temp, barHeight:max, propcoeff: 0.8});
+            this.setState({ data: temp, barHeight:max, propcoeff: 0.8});
+        })
+
         const numbers = []
         for (let i = 0; i < this.state.data.length; i++) {
             numbers.push(Math.floor(Math.random() * 3) + 1);
@@ -106,8 +76,8 @@ export default class HistoryCard extends React.Component {
         // console.log(value);
         return (
             <div className="weedWrapper">
-                <img src={seaWeed} style={{height: `${value.percentage*this.state.propcoeff}%`}}alt="Graph" />
-                <div className="weedDate">{value.date}</div>
+                <img src={seaWeed} style={{height: `${value.ratio.polandNormal*this.state.propcoeff}%`}}alt="Graph" />
+                <div className="weedDate">{value.localDateTime}</div>
             </div>
             
         );
@@ -115,11 +85,12 @@ export default class HistoryCard extends React.Component {
 
     renderWeeds() {
         const { imageNumbers } = this.state;
-        // console.log('ImageNumbers')
-        return (this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index])))
+        console.log(this.state.data);
+        return (this.state.data ? this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index])) : null)
     }
 
     render() {
+        console.log(this.state.data);
 
       return (
         <div className="historyCard">

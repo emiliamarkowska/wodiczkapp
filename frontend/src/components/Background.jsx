@@ -7,6 +7,8 @@ import SwipeableViews from 'react-swipeable-views';
 import UsageCard from './UsageCard';
 import HistoryCard from './HistoryCard';
 import { getDailyUsage } from '../Services/UsageService';
+import InfoWaterWalkingCard from './InfoWaterWalkingCard';
+import InfoTshirtCard from './InfoTshirtCard';
 
 
 
@@ -40,6 +42,12 @@ export default class Background extends React.Component {
             </Card>
             <Card>
               <HistoryCard/>
+            </Card>
+            <Card>
+              <InfoWaterWalkingCard/>
+            </Card>
+            <Card>
+              <InfoTshirtCard/>
             </Card>
         </SwipeableViews>
         <div className="ocean" style={{ height: percentageHeight }}>
