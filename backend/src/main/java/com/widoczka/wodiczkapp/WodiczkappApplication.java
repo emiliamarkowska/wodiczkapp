@@ -32,7 +32,7 @@ public class WodiczkappApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demoData(CategoryRepository categoryRepository) {
+	public CommandLineRunner testDataCategory(CategoryRepository categoryRepository) {
 		return args -> {
 			categoryRepository.save(category1);
 			categoryRepository.save(category2);
@@ -41,7 +41,7 @@ public class WodiczkappApplication {
 		};
 	}
 	@Bean
-	public CommandLineRunner demoData(CurrentUsageRepository currentUsageRepository) {
+	public CommandLineRunner testDataCurrentUsage(CurrentUsageRepository currentUsageRepository) {
 		return args -> {
 			currentUsageRepository.save(currentUsage1);
 			currentUsageRepository.save(currentUsage2);
@@ -51,7 +51,7 @@ public class WodiczkappApplication {
 		};
 	}
 	@Bean
-	public CommandLineRunner demoData(CurrentUsageCategoryRepository currentUsageCategoryRepository) {
+	public CommandLineRunner testDataCurrentUsageCategory(CurrentUsageCategoryRepository currentUsageCategoryRepository) {
 		return args -> {
 			currentUsageCategoryRepository.save(new CurrentUsageCategory(category1, currentUsage1, 0.5f));
 			currentUsageCategoryRepository.save(new CurrentUsageCategory(category2, currentUsage1, 0.5f));
