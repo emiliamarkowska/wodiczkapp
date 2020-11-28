@@ -53,6 +53,7 @@ export default class HistoryCard extends React.Component {
 
     componentDidMount() {
         let temp = []
+        let max 
         for (let i = 1; i < 8; ++i) {
             temp.push({
                 key: i,
@@ -60,19 +61,29 @@ export default class HistoryCard extends React.Component {
                 date: `11.${30 - i}`
             })
         }
-
-        this.setState({ data: temp });
-
+        //calc proportionality
+        const check = temp.slice()
+        let sorted = temp.slice()
+        sorted = sorted.sort((a, b) => (a.percentage > b.percentage) ? 1 : -1)
+        max = sorted[6].percentage
+        console.log(sorted)
+        console.log(max)
+        temp.forEach(function(item) {
+            item.percentage = Math.ceil(item.percentage*100/max);
+          })
+        this.setState({ data: temp, barHeight:max, propcoeff: 0.8});
         const numbers = []
         for (let i = 0; i < this.state.data.length; i++) {
             numbers.push(Math.floor(Math.random() * 3) + 1);
         }
-
         this.setState({
             imageNumbers: numbers
         })
     }
-
+    renderBar(){
+        console.log(this.state.barHeight)
+        return (<div style={{top:`${100-(90*this.state.propcoeff)}%`}}className="strike">W.U.R</div>)
+    }
     getWeedImage(value, id) {
         let seaWeed = greenSeaWeed_1;
         switch(id) {
@@ -92,10 +103,10 @@ export default class HistoryCard extends React.Component {
                 seaWeed = greenSeaWeed_1;
                 break;
         }
-        console.log(value);
+        // console.log(value);
         return (
             <div className="weedWrapper">
-                <img src={seaWeed} style={{height: `${value.percentage}%`}}alt="Graph" />
+                <img src={seaWeed} style={{height: `${value.percentage*this.state.propcoeff}%`}}alt="Graph" />
                 <div className="weedDate">{value.date}</div>
             </div>
             
@@ -104,15 +115,18 @@ export default class HistoryCard extends React.Component {
 
     renderWeeds() {
         const { imageNumbers } = this.state;
-        return this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index]))
+        // console.log('ImageNumbers')
+        return (this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index])))
     }
 
     render() {
 
       return (
         <div className="historyCard">
+                {this.renderBar()}
             <div className="weeds">
                 {/* <img className="greenSeaWeed_1"src={greenSeaWeed_1} style={{height:`${50}vh`}}alt="Graph" /> */}
+                {/* {this.renderBar()} */}
                 {this.renderWeeds()}
             </div>
             <div className="sand">

@@ -28,6 +28,16 @@
     width: 50%
   }
 
+  .strike {
+    position:absolute;
+    width:100%;
+    border-top:1px dotted rgb(255, 255, 255);
+    height:2px;
+    background:rgb(255, 255, 255);
+    left:0px;
+
+  }
+
   .weeds {
       position: absolute;
       width: 100%;
