@@ -24,6 +24,11 @@ public class Category {
 
     public Category() {};
 
+    public Category(String name, Float rate) {
+        this.name = name;
+        this.rate = rate;
+    }
+
     @Override
     public String toString() {
         return "CategoryLabel{" +

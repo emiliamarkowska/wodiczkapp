@@ -1,61 +1,40 @@
 package com.widoczka.wodiczkapp.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CurrentUsageActivityLabels")
+@Table(name = "CurrentUsageCategory")
 public class CurrentUsageCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Setter
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "activity_label_id")
-    private Category activityLabel;
+    @JoinColumn(name = "category_id")
+    @Getter
+    @Setter
+    private Category category;
 
     @ManyToOne
     @JoinColumn(name = "current_usage_id")
+    @Getter
+    @Setter
     private CurrentUsage currentUsage;
 
+    @Getter
+    @Setter
     private float rate;
 
     public CurrentUsageCategory() {}
 
-    public CurrentUsageCategory(Category activityLabel, CurrentUsage currentUsage, float rate){
-        this.activityLabel = activityLabel;
+    public CurrentUsageCategory(Category category, CurrentUsage currentUsage, float rate){
+        this.category = category;
         this.currentUsage = currentUsage;
-        this.rate = rate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Category getActivityLabel() {
-        return activityLabel;
-    }
-
-    public void setActivityLabel(Category activityLabel) {
-        this.activityLabel = activityLabel;
-    }
-
-    public CurrentUsage getCurrentUsage() {
-        return currentUsage;
-    }
-
-    public void setCurrentUsage(CurrentUsage currentUsage) {
-        this.currentUsage = currentUsage;
-    }
-
-    public float getRate() {
-        return rate;
-    }
-
-    public void setRate(float rate) {
         this.rate = rate;
     }
 
@@ -63,7 +42,7 @@ public class CurrentUsageCategory {
     public String toString() {
         return "CurrentUsageCategory{" +
                 "id=" + id +
-                ", activityLabel=" + activityLabel +
+                ", category=" + category +
                 ", currentUsage=" + currentUsage +
                 ", rate=" + rate +
                 '}';
