@@ -29,13 +29,13 @@ export default class InfoWaterWalkingCard extends React.Component {
 
     return (
       <div className="usageCard">
-        <div className="info-container">
-          <div className="info-intro-wrapper">
+        <div className="walk-info-container">
+          <div className="walk-info-intro-wrapper">
             <div className="spacer"/>
-            <span className="info-intro-text">Ludzie w krajach rozwijających się pokonują średnio <span className="countries-info">{countriesWalkingDist}km</span> dziennie,<br/> aby zebrać <span className="countries-info">20l</span> wody.</span>
+            <span className="walk-info-intro-text">Ludzie w krajach rozwijających się pokonują średnio <span className="countries-info">{countriesWalkingDist}km</span> dziennie,<br/> aby zebrać <span className="countries-info">20l</span> wody.</span>
           </div>
-          <div className="info-main-wrapper">
-            <span className="info-main-text">Musiał(a)byś przejść <span className="user-dist">{userWalkingDist} km</span>,<nr/> żeby zebrać dziś wodę dla siebie.</span>
+          <div className="walk-info-main-wrapper">
+            <span className="walk-info-main-text">Musiał(a)byś przejść <span className="user-dist">{userWalkingDist} km</span>,<nr/> żeby zebrać dziś wodę dla siebie.</span>
             <div className="spacer"/>
          </div>
         </div>

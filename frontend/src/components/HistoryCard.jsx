@@ -5,6 +5,7 @@ import greenSeaWeed_2 from '../assets/graphs/greenSeaWeed_2.svg'
 import greenSeaWeed_3 from '../assets/graphs/greenSeaWeed_3.svg'
 import greenSeaWeed_4 from '../assets/graphs/greenSeaWeed_4.svg'
 import sandImage from '../assets/backgr/sand.png'
+import { getHistoryUsage } from '../Services/UsageService';
 
 // const data = [
 //     {
@@ -52,16 +53,13 @@ export default class HistoryCard extends React.Component {
     }
 
     componentDidMount() {
-        let temp = []
-        for (let i = 1; i < 8; ++i) {
-            temp.push({
-                key: i,
-                percentage: Math.floor(Math.random() * 101),
-                date: `11.${30 - i}`
-            })
-        }
-
-        this.setState({ data: temp });
+        
+        getHistoryUsage().then((data) => {
+            console.log(data);
+            this.setState({
+                data: data
+            });
+        })
 
         const numbers = []
         for (let i = 0; i < this.state.data.length; i++) {
@@ -104,7 +102,7 @@ export default class HistoryCard extends React.Component {
 
     renderWeeds() {
         const { imageNumbers } = this.state;
-        return this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index]))
+        return this.state.data ?? this.state.data.map((value, index) => this.getWeedImage(value, imageNumbers[index]))
     }
 
     render() {
