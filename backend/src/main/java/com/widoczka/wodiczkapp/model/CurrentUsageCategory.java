@@ -4,14 +4,14 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "CurrentUsageActivityLabels")
-public class CurrentUsageActivityLabel {
+public class CurrentUsageCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
     @JoinColumn(name = "activity_label_id")
-    private ActivityLabel activityLabel;
+    private CategoryLabel activityLabel;
 
     @ManyToOne
     @JoinColumn(name = "current_usage_id")
@@ -19,9 +19,9 @@ public class CurrentUsageActivityLabel {
 
     private float rate;
 
-    public CurrentUsageActivityLabel() {}
+    public CurrentUsageCategory() {}
 
-    public CurrentUsageActivityLabel(ActivityLabel activityLabel, CurrentUsage currentUsage, float rate){
+    public CurrentUsageCategory(CategoryLabel activityLabel, CurrentUsage currentUsage, float rate){
         this.activityLabel = activityLabel;
         this.currentUsage = currentUsage;
         this.rate = rate;
@@ -35,11 +35,11 @@ public class CurrentUsageActivityLabel {
         this.id = id;
     }
 
-    public ActivityLabel getActivityLabel() {
+    public CategoryLabel getActivityLabel() {
         return activityLabel;
     }
 
-    public void setActivityLabel(ActivityLabel activityLabel) {
+    public void setActivityLabel(CategoryLabel activityLabel) {
         this.activityLabel = activityLabel;
     }
 
@@ -61,7 +61,7 @@ public class CurrentUsageActivityLabel {
 
     @Override
     public String toString() {
-        return "CurrentUsageActivityLabel{" +
+        return "CurrentUsageCategory{" +
                 "id=" + id +
                 ", activityLabel=" + activityLabel +
                 ", currentUsage=" + currentUsage +
@@ -74,7 +74,7 @@ public class CurrentUsageActivityLabel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CurrentUsageActivityLabel that = (CurrentUsageActivityLabel) o;
+        CurrentUsageCategory that = (CurrentUsageCategory) o;
 
         return id == that.id;
 

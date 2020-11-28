@@ -1,11 +1,10 @@
 package com.widoczka.wodiczkapp.model;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ActivityLabels")
-public class ActivityLabel {
+public class CategoryLabel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -14,13 +13,13 @@ public class ActivityLabel {
 
     private Float rate;
 
-    public ActivityLabel () {};
+    public CategoryLabel() {};
 
-    public ActivityLabel(String name) {
+    public CategoryLabel(String name) {
         this.name = name;
     }
 
-    public ActivityLabel(Float rate) {
+    public CategoryLabel(Float rate) {
         this.rate = rate;
     }
 
@@ -46,7 +45,7 @@ public class ActivityLabel {
 
     @Override
     public String toString() {
-        return "ActivityLabel{" +
+        return "CategoryLabel{" +
                 "id=" + id +
                 ", name=" + name +
                 ", rate=" + rate +
@@ -58,7 +57,7 @@ public class ActivityLabel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ActivityLabel activityLabel = (ActivityLabel) o;
+        CategoryLabel activityLabel = (CategoryLabel) o;
 
         return id == activityLabel.id;
     }
