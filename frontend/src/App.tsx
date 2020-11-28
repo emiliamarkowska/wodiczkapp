@@ -5,7 +5,7 @@ import DeviceReckogniser from './components/DeviceReckogniser';
 
 
 function App() {
-  return <DeviceReckogniser/>;
+  return <DeviceReckogniser />;
 }
 
 export default App;
