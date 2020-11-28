@@ -1,0 +1,61 @@
+.sign {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.sign .sign-content {
+    margin-left: 15%;
+    width: 70%;
+    position: relative;
+}
+
+.sign-content img {
+    width: 100%;
+}
+
+.sign-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-top: 11%;
+    font-size: 10vw;
+    transform: rotate(4deg);
+}
+
+.info-container {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-intro-wrapper, .info-main-wrapper {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.info-intro-text {
+    text-align: right;
+    align-self: right;
+    width: 80%;
+    font-size: 0.9rem;
+}
+
+.info-main-text {
+    text-align: left;
+    align-self: left;
+    width: 85%;
+    font-size: 1.3rem;
+}
+
+.countries-info {
+    color: #cc1f1f;
+}
+
+.user-dist {
+    font-size: 1.7rem;
+    color: #cc1f1f;
+}
