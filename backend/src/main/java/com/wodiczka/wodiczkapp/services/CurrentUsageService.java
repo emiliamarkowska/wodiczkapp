@@ -1,10 +1,13 @@
 package com.wodiczka.wodiczkapp.services;
 
 import com.wodiczka.wodiczkapp.model.ActiveCategory;
+import com.wodiczka.wodiczkapp.model.Category;
 import com.wodiczka.wodiczkapp.model.CurrentUsage;
 import com.wodiczka.wodiczkapp.model.CurrentUsageCategory;
+import com.wodiczka.wodiczkapp.repositories.CategoryRepository;
 import com.wodiczka.wodiczkapp.repositories.CurrentUsageCategoryRepository;
 import com.wodiczka.wodiczkapp.repositories.CurrentUsageRepository;
+import com.wodiczka.wodiczkapp.response_model.CategoriesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +19,17 @@ public class CurrentUsageService {
     private CurrentUsageRepository currentUsageRepository;
     private ActiveCategoryService activeCategoryService;
     private CurrentUsageCategoryRepository currentUsageCategoryRepository;
+    private CategoryRepository categoryRepository;
 
     @Autowired
     public CurrentUsageService(CurrentUsageRepository currentUsageRepository,
                                ActiveCategoryService activeCategoryService,
-                               CurrentUsageCategoryRepository currentUsageCategoryRepository) {
+                               CurrentUsageCategoryRepository currentUsageCategoryRepository,
+                               CategoryRepository categoryRepository) {
         this.currentUsageRepository = currentUsageRepository;
         this.activeCategoryService = activeCategoryService;
         this.currentUsageCategoryRepository = currentUsageCategoryRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     public void addCurrentUsage(CurrentUsage currentUsage) {
@@ -32,6 +38,19 @@ public class CurrentUsageService {
         List<CurrentUsageCategory> currentUsageCategories = getCurrentUsageCategories(activeCategoryList, currentUsage, weightSum);
         currentUsageRepository.save(currentUsage);
         currentUsageCategoryRepository.saveAll(currentUsageCategories);
+    }
+
+    public CategoriesResponse getCategoriesToLiters() {
+        List<Category> categories = (List<Category>) categoryRepository.findAll();
+        CategoriesResponse categoriesResponse = new CategoriesResponse();
+        categories.forEach(category -> {
+            Integer categoryId = category.getId();
+            String categoryName = category.getName();
+            float liters = currentUsageRepository.getCurrentUsageInLiters(categoryId);
+            categoriesResponse.putEntry(categoryName, liters);
+            categoriesResponse.addLiters(liters);
+        });
+        return categoriesResponse;
     }
 
     private float getWeightSum(List<ActiveCategory> activeCategories) {
@@ -50,7 +69,6 @@ public class CurrentUsageService {
         }
         return currentUsageCategories;
     }
-
 
 
     public void deleteCurrentUsage(int id) {
