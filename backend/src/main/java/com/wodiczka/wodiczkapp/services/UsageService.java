@@ -6,12 +6,10 @@ import com.wodiczka.wodiczkapp.response_model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class UsageService {
@@ -62,6 +60,27 @@ public class UsageService {
             dailyUsages.add(new DailyUsage(u.getFirst(), u.getSecond().intValue(), ratioMap));
         }
 
+/*
+        List<Date> datesInRange = new ArrayList<>();
+        Date todayDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        for(int i = 0; i <= amount; i++) {
+            datesInRange.add(addDays(todayDate, i));
+        }
+
+        datesInRange.stream()
+                .map(date -> )
+
+*/
+
+
         return new DaysResponse(totalDaysLiters, dailyUsages);
     }
+
+    private static Date addDays(Date date, int days) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DATE, days);
+        return new Date(c.getTimeInMillis());
+    }
+
 }
