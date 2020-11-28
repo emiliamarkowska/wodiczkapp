@@ -747,16 +747,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.175"
-     inkscape:cx="396.93596"
-     inkscape:cy="-5367.9398"
+     inkscape:zoom="0.35"
+     inkscape:cx="1684.891"
+     inkscape:cy="-2894.837"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="2400"
-     inkscape:window-height="1271"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
      inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:window-y="1341"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
      showguides="true"
@@ -769,7 +769,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -4516,5 +4516,96 @@
            x="1.4285715"
            y="1.091113"
            style="text-align:center;text-anchor:middle;fill:#eefefe;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara7400">78%</flowPara></flowRoot>  </g>
+         id="flowPara7400">78%</flowPara></flowRoot>    <path
+       style="opacity:1;fill:#255f5e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.98753953;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 238.28352,641.85217 h 80.03449 l 7.08264,-4.63559 6.68174,4.63559 h 79.37515 c 0.92542,0 1.67044,0.35855 1.67044,0.80392 v 1.30266 c 0,0.44537 -0.74502,0.80392 -1.67044,0.80392 H 238.28352 c -0.92542,0 -1.67044,-0.35855 -1.67044,-0.80392 v -1.30266 c 0,-0.44537 0.74502,-0.80392 1.67044,-0.80392 z"
+       id="rect5410"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="scccssssssss" />
+    <rect
+       style="opacity:1;fill:#d2eeed;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.86500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5419"
+       width="168.95535"
+       height="152.3244"
+       x="647.47321"
+       y="492.79166"
+       ry="1.6704336" />
+    <path
+       sodipodi:nodetypes="scccssssssss"
+       inkscape:connector-curvature="0"
+       id="path5417"
+       d="m 644.9859,490.84489 h 80.03449 l 7.08264,-4.63559 6.68174,4.63559 h 79.37515 c 0.92542,0 1.67044,0.35855 1.67044,0.80392 v 1.30266 c 0,0.44537 -0.74502,0.80392 -1.67044,0.80392 H 644.9859 c -0.92542,0 -1.67044,-0.35855 -1.67044,-0.80392 v -1.30266 c 0,-0.44537 0.74502,-0.80392 1.67044,-0.80392 z"
+       style="opacity:1;fill:#255f5e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.98753953;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.86500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5421"
+       width="168.64706"
+       height="0.8018086"
+       x="647.59406"
+       y="523.7514"
+       ry="0.4009043" />
+    <rect
+       ry="0.4009043"
+       y="553.79254"
+       x="647.59406"
+       height="0.8018086"
+       width="168.64706"
+       id="rect5423"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.86500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.86500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5425"
+       width="168.64706"
+       height="0.8018086"
+       x="647.59406"
+       y="583.83362"
+       ry="0.4009043" />
+    <rect
+       ry="0.4009043"
+       y="613.87476"
+       x="647.59406"
+       height="0.8018086"
+       width="168.64706"
+       id="rect5427"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.86500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <flowRoot
+       transform="matrix(0.50561514,0,0,0.50561514,536.1664,504.07882)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.66666698px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#255f5e;fill-opacity:1;stroke:none;"
+       id="flowRoot6227-0"
+       xml:space="preserve"><flowRegion
+         style="text-align:end;text-anchor:end;fill:#255f5e;fill-opacity:1;"
+         id="flowRegion6223-8"><rect
+           style="text-align:end;text-anchor:end;fill:#255f5e;fill-opacity:1;"
+           y="1.091113"
+           x="1.4285715"
+           height="25.484327"
+           width="438.68295"
+           id="rect6221-7" /></flowRegion><flowPara
+         id="flowPara6225-8">Pomiar czasowy</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot5481"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.66666698px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#255f5e;fill-opacity:1;stroke:none"
+       transform="matrix(0.50561514,0,0,0.50561514,522.48105,533.47847)"><flowRegion
+         id="flowRegion5477"
+         style="text-align:end;text-anchor:end;fill:#255f5e;fill-opacity:1"><rect
+           id="rect5475"
+           width="438.68295"
+           height="25.484327"
+           x="1.4285715"
+           y="1.091113"
+           style="text-align:end;text-anchor:end;fill:#255f5e;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara5479">Historia</flowPara></flowRoot>    <flowRoot
+       transform="matrix(0.50561514,0,0,0.50561514,518.62112,564.21447)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.66666698px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#255f5e;fill-opacity:1;stroke:none"
+       id="flowRoot5489"
+       xml:space="preserve"><flowRegion
+         style="text-align:end;text-anchor:end;fill:#255f5e;fill-opacity:1"
+         id="flowRegion5485"><rect
+           style="text-align:end;text-anchor:end;fill:#255f5e;fill-opacity:1"
+           y="1.091113"
+           x="1.4285715"
+           height="25.484327"
+           width="438.68295"
+           id="rect5483" /></flowRegion><flowPara
+         id="flowPara5487">Opcje</flowPara></flowRoot>  </g>
 </svg>
