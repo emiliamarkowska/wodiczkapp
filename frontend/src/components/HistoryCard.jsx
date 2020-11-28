@@ -40,19 +40,21 @@ export default class HistoryCard extends React.Component {
                 item.ratio.polandNormal = Math.ceil(item.ratio.polandNormal*100/max);
             })
             this.setState({ data: temp, barHeight:max, propcoeff: 0.8});
+
+            const numbers = []
+            for (let i = 0; i < this.state.data.length; i++) {
+                numbers.push(Math.floor(Math.random() * 3) + 1);
+            }
+            this.setState({
+                imageNumbers: numbers
+            });
         })
 
-        const numbers = []
-        for (let i = 0; i < this.state.data.length; i++) {
-            numbers.push(Math.floor(Math.random() * 3) + 1);
-        }
-        this.setState({
-            imageNumbers: numbers
-        })
+
     }
     renderBar(){
-        console.log(this.state.barHeight)
-        return (<div style={{top:`${100-(90*this.state.propcoeff)}%`}}className="strike">W.U.R</div>)
+        console.log(this.state.barHeight*this.state.propcoeff)
+        return (<div style={{top:`${100-90}%`}}className="strike">W.U.R</div>)
     }
     getWeedImage(value, id) {
         let seaWeed = greenSeaWeed_1;
@@ -76,8 +78,13 @@ export default class HistoryCard extends React.Component {
         // console.log(value);
         return (
             <div className="weedWrapper">
+<<<<<<< HEAD
                 <img src={seaWeed} style={{height: `${value.ratio.polandNormal*this.state.propcoeff}%`}}alt="Graph" />
                 <div className="weedDate">{value.localDateTime}</div>
+=======
+                <img src={seaWeed} style={{height: `${value.percentage}%`}}alt="Graph" />
+                <div className="weedDate">{value.date}</div>
+>>>>>>> ac34859c15dc29fee89d60e1b2e2e74957fe5000
             </div>
             
         );
