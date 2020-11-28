@@ -11,7 +11,7 @@ public class CurrentUsageCategory {
 
     @ManyToOne
     @JoinColumn(name = "activity_label_id")
-    private Category activityLabel;
+    private Category category;
 
     @ManyToOne
     @JoinColumn(name = "current_usage_id")
@@ -21,8 +21,8 @@ public class CurrentUsageCategory {
 
     public CurrentUsageCategory() {}
 
-    public CurrentUsageCategory(Category activityLabel, CurrentUsage currentUsage, float rate){
-        this.activityLabel = activityLabel;
+    public CurrentUsageCategory(Category category, CurrentUsage currentUsage, float rate){
+        this.category = category;
         this.currentUsage = currentUsage;
         this.rate = rate;
     }
@@ -35,12 +35,12 @@ public class CurrentUsageCategory {
         this.id = id;
     }
 
-    public Category getActivityLabel() {
-        return activityLabel;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setActivityLabel(Category activityLabel) {
-        this.activityLabel = activityLabel;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public CurrentUsage getCurrentUsage() {
@@ -63,7 +63,7 @@ public class CurrentUsageCategory {
     public String toString() {
         return "CurrentUsageCategory{" +
                 "id=" + id +
-                ", activityLabel=" + activityLabel +
+                ", category=" + category +
                 ", currentUsage=" + currentUsage +
                 ", rate=" + rate +
                 '}';
