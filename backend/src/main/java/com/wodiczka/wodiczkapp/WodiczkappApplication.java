@@ -9,17 +9,32 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class WodiczkappApplication {
 
-	CurrentUsage currentUsage1 = new CurrentUsage(LocalDateTime.now());
-	CurrentUsage currentUsage2 = new CurrentUsage(LocalDateTime.now());
-	CurrentUsage currentUsage3 = new CurrentUsage(LocalDateTime.now());
-	CurrentUsage currentUsage4 = new CurrentUsage(LocalDateTime.now());
-	CurrentUsage currentUsage5 = new CurrentUsage(LocalDateTime.now());
-
 	public static void main(String[] args) {
 		SpringApplication.run(WodiczkappApplication.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner loadUsageData(UsageRepository usageRepository) {
+		return args -> {
+			LocalDate d = LocalDate.now();
+			LocalDateTime dt = d.atStartOfDay();
+			LocalDateTime now = LocalDateTime.now();
+
+			for (int i = 20; i > 1; --i) {
+				LocalDateTime start = dt.minusDays(i);
+				for (int j = 1; j < (i % 2) * 30 + (i % 3) * 15 + (i % 4) * 9 + (i % 5) * 3;  ++j) {
+					usageRepository.save(new Usage(start.plusMinutes(j)));
+				}
+			}
+
+			for (int i = 58; i > 1; --i) {
+				usageRepository.save(new Usage(now.minusMinutes(i)));
+			}
+		};
 	}
 }
