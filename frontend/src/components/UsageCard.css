@@ -1,0 +1,49 @@
+.jellyFish{
+    z-index: 2;
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    flex: 0;
+}
+
+.jellyFish div {
+    width: 80%;
+}
+
+.title-liters {
+    z-index: 2;
+    position: relative;
+    color:  rgb(24, 9, 158);
+    font-size: 5rem;
+    margin: 0;
+
+    flex: 0;
+}
+
+.title-percentage {
+    z-index: 2;
+    position: relative;
+    color: rgb(24, 9, 158);
+    font-size: 2rem;
+    margin: 0;
+
+    flex: 0;
+}
+
+.usageCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.spacer2 {
+    flex: 3;
+}

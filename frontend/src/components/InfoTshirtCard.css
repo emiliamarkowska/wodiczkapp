@@ -1,0 +1,39 @@
+.steel-info-container {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.steel-info-intro-wrapper, .steel-info-main-wrapper {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.steel-info-intro-text {
+    text-align: left;
+    align-self: left;
+    width: 90%;
+    font-size: 1.3rem;
+}
+
+.steel-info-main-text {
+    text-align: right;
+    align-self: right;
+    width: 85%;
+    font-size: 0.9rem;
+}
+
+.tshirt-usage-percent {
+    font-size: 1.7rem;
+    color: #cc1f1f;
+}
+
+.shirt {
+    width: 40%;
+}
+
+.shirt img {
+    width: 100%;
+}

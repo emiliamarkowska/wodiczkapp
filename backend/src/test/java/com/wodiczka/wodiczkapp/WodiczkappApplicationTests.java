@@ -1,4 +1,4 @@
-package com.widoczka.wodiczkapp;
+package com.wodiczka.wodiczkapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
