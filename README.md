@@ -19,7 +19,7 @@ docker-compose up
 ```
 This will start Java backend, React frontend and MySQL database in separate Docker containers, ready to communicate with each other and be used by developer and a user.
 
-Visit http://127.0.0.1:8000 to access the application.
+Visit http://127.0.0.1:9090 to access the application.
 
 ## Sensor ESP32 board
 To enable sensor correct work and connection with the database, IP address and port of the machine it's running on, eg. in local network, is needed. As for now, unfortunately it needs to be put manually in code and compiled onto the ESP32 board.
