@@ -27,7 +27,7 @@ public class WodiczkappApplication {
 
 			for (int i = 20; i > 1; --i) {
 				LocalDateTime start = dt.minusDays(i);
-				for (int j = 1; j < (i % 2) * 30 + (i % 3) * 15 + (i % 4) * 9 + (i % 5) * 3;  ++j) {
+				for (int j = 1; j < (i % 2) * 50 + (i % 3) * 35 + (i % 4) * 15 + (i % 5) * 7;  ++j) {
 					usageRepository.save(new Usage(start.plusMinutes(j)));
 				}
 			}
