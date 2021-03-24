@@ -1,6 +1,18 @@
-# wodiczkapp
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+</style>
 
-Simple web app to manage and get more conscious with water usage in home.
+
+<!-- # wodiczkapp -->
+<h1 style="font-family: Permanent Marker; color: cyan;text-align:center">Wodiczka</h1>
+
+
+This fullstack web application was written in Spring and React. Our product was designed in mind with people who were enviroment conscious and wanted to become more resourceful with water at home. Application presents water usage reports in a friendly and enjoyable way. It is full of fun facts and tips how to become aware of water-waste problem and enables to keep track of the amount of water used.
+
+<p align="center">
+  <img width="269" src="Images/2.png">
+  <img width="267" src="Images/3.png">
+</p>
 
 ## Prerequisites
 * Node.js
@@ -14,7 +26,7 @@ Simple web app to manage and get more conscious with water usage in home.
 
 ## Run with docker
 
-```
+```dockerfile
 docker-compose up
 ```
 This will start Java backend, React frontend and MySQL database in separate Docker containers, ready to communicate with each other and be used by developer and a user.
