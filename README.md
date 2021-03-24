@@ -1,17 +1,11 @@
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-</style>
-
-
 <!-- # wodiczkapp -->
-<h1 style="font-family: Permanent Marker; color: cyan;text-align:center">Wodiczka</h1>
-
+# Wodiczka
 
 This fullstack web application was written in Spring and React. Our product was designed in mind with people who were enviroment conscious and wanted to become more resourceful with water at home. Application presents water usage reports in a friendly and enjoyable way. It is full of fun facts and tips how to become aware of water-waste problem and enables to keep track of the amount of water used.
 
 <p align="center">
-  <img width="269" src="Images/2.png">
-  <img width="267" src="Images/3.png">
+  <img width="269" src="images/2.png">
+  <img width="267" src="images/3.png">
 </p>
 
 ## Prerequisites
